@@ -1,0 +1,44 @@
+HideBars - CHANGELOG
+====================
+
+Version 1.3.3.7
+===============
+
+FEATURES:
+- Hide/show micro menu buttons and bag bar with a single command
+- Minimap button with visual status indicator (green when enabled, red when disabled)
+- Multiple slash commands: /hb, /hidebars, /ticket
+- Slash command options: show, hide, toggle
+- Welcome message on login showing Broccoli's friendship message with local time
+- Settings persist across sessions using AceDB with per-character profiles
+- Left-click minimap button to toggle bars on/off
+- Right-click drag minimap button to reposition
+
+UI ELEMENTS CONTROLLED:
+- MicroButtonContainer
+- CharacterMicroButton
+- SpellbookMicroButton
+- TalentMicroButton
+- AchievementMicroButton
+- QuestLogMicroButton
+- SocialsMicroButton
+- HelpMicroButton
+- LevelUpDisplayFrame
+- MainMenuMicroButton
+- MainMenuBarBackpackButton
+- KeyRingButton
+- CharacterBag0Slot
+- CharacterBag1Slot
+- CharacterBag2Slot
+- CharacterBag3Slot
+
+TECHNOLOGY:
+- Built with Ace3 Libraries (AceAddon, AceEvent, AceConsole, AceDB)
+- Uses LibDataBroker and LibDBIcon for minimap integration
+- TBC compatible (Interface 20400)
+
+AUTHOR:
+Pegga
+
+NOTES:
+"You can hide bars, but not our friendship!"
