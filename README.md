@@ -9,3 +9,5 @@
 - enabled
 <img width="614" height="63" alt="image" src="https://github.com/user-attachments/assets/401e11d4-488b-4da8-b4c1-d07283d42ae6" />
 
+Switching between the two when you disable the addon you might have /reload to see them correctly again
+
