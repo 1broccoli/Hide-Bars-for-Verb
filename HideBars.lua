@@ -25,6 +25,7 @@ local UI_ELEMENTS = {
     "CharacterMicroButton",
     "SpellbookMicroButton",
     "TalentMicroButton",
+    "WorldMapMicroButton",
     "AchievementMicroButton",
     "QuestLogMicroButton",
     "SocialsMicroButton",
@@ -42,7 +43,15 @@ local UI_ELEMENTS = {
 function HideBars:HideBars()
     for _, element in ipairs(UI_ELEMENTS) do
         local frame = _G[element]
-        if frame then frame:Hide() end
+        if frame then 
+            frame:Hide()
+            -- Add a script to prevent the frame from being shown by other addons/events
+            frame:SetScript("OnShow", function(self)
+                if HideBars.db and HideBars.db.profile and HideBars.db.profile.enabled then
+                    self:Hide()
+                end
+            end)
+        end
     end
 end
 
@@ -95,8 +104,11 @@ function HideBars:OnInitialize()
 end
 
 function HideBars:OnEnable()
-    -- Register events
+    -- Register events to catch UI resets
     self:RegisterEvent("PLAYER_ENTERING_WORLD", "OnPlayerEnteringWorld")
+    self:RegisterEvent("PLAYER_LOGIN", "OnPlayerEnteringWorld")
+    self:RegisterEvent("PLAYER_REGEN_ENABLED", "OnPlayerEnteringWorld")
+    self:RegisterEvent("PLAYER_REGEN_DISABLED", "OnPlayerEnteringWorld")
     
     -- Register slash commands
     self:RegisterChatCommand("hb", "SlashCommandHB")
